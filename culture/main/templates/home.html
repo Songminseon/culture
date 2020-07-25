@@ -1,0 +1,48 @@
+<p> home </p>
+
+<form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+
+    <div class="history_problem">
+        <p>518민주화 운동은 어디서 일어났을까요?</p>
+        <input type="checkbox" name='answer1' value="user1_choice1">광주
+        <input type="checkbox" name='answer1' value="user1_choice2">서울
+    </div>
+
+    <div class="history_problem">
+        <p>1895년 일어난 일본이 명성황후 살인한 사건은?</p>
+        <input type="checkbox" name="answer2" value="user2_choice1">임진왜란
+        <input type="checkbox" name="answer2" value="user2_choice2">을미사변
+    </div>
+    <input type="submit" value="답지제출하기">
+</form>
+
+
+{{grade}}
+{{recommend}}
+{{recommend.category}}
+{{recommend.name}}
+<p>000</p>
+
+{% for recommend in recommend.all %}
+{{recommend.name}}
+{{recommend.category}}
+{% endfor %}
+<p>111111</p>
+{% for i in recommend %}
+
+{{i.name}}
+{{i.category}}
+{% endfor %}
+<p>22222222222</p>
+
+{% for i in movieNm_list %}
+{{i}}
+{% endfor %}
+
+<p>333333333</p>
+{% for detail in detail_list%}
+{{detail}}
+{% endfor %}
+<p>4444</p>
+{{detail_code}}

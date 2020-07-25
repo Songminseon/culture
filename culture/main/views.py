@@ -1,0 +1,109 @@
+from django.shortcuts import render, redirect
+from content.models import Content, Content_other
+import requests
+import json
+from lxml.html import parse
+from io import StringIO
+import os, sys
+from PIL import Image
+
+
+def find_detail(get_movieNm, get_directorNm):
+    api_key = '38d2c8854e32a32fd76a72ab8d5c7de5'
+    url_tpl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key={key}&movieNm={movieNm}&directorNm={directorNm}"
+    api_url = url_tpl.format(key=api_key, movieNm=get_movieNm, directorNm=get_directorNm) #반도랑 연상호 부분 parameter로 바꿔야함
+
+    response=requests.get(url=api_url).json()
+    
+    return response['movieListResult']['movieList']
+
+def find_detail_bycode(detail_code):
+    
+    api_key = '38d2c8854e32a32fd76a72ab8d5c7de5'
+    url_tpl = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key={key}&movieCd={movie_code}"
+    api_url = url_tpl.format(key=api_key, movie_code=detail_code) #반도랑 연상호 부분 parameter로 바꿔야함
+    response=requests.get(url=api_url).json()
+    
+    return response
+
+def find_imgsrc(movieName):
+    base_url = 'https://www.google.co.kr/search?q={movieNm}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwic-taB9IXVAhWDHpQKHXOjC14Q_AUIBigB&biw=1842&bih=990' 
+    url = base_url.format(movieNm=movieName+"포스터")
+
+    # html 소스 가져오기
+    text = requests.get(url).text
+
+    # html 문서로 파싱
+    text_source = StringIO(text)
+    parsed = parse(text_source)
+    doc = parsed.getroot()
+    imgs = doc.findall('.//img')
+
+    img_list = []   # 이미지 경로가 담길 list
+    for link in imgs:
+        img_list.append(link.get('src'))
+
+    return img_list[1:2]
+
+
+
+def main(request):
+    content = Content.objects
+    return render(request, 'main.html', {"content":content})
+
+def home(request):
+    if request.method == "POST":
+        aws1 = request.POST.get('answer1')
+        aws2 = request.POST.get('answer2')
+        grade = 0
+        history_list = []
+        recommend_list = []
+        movieNm_list = []
+        directorNm_list = []
+        detail_list = []
+        detail_code = []
+
+        if aws1 == 'user1_choice1':
+            grade = grade+1
+        else:
+            history_list.append('518민주화운동')
+
+        if aws2 == "user2_choice2":
+            grade = grade+1
+
+        else:
+            history_list.append('을미사변')
+
+        #############추천목록 구현#################
+        if len(history_list) == 0:
+            recommend_list = "참잘했어요"
+        else:
+            for i in history_list:
+                recommend_list.extend(Content.objects.filter(history=i))
+                movieNm_list.extend(Content.objects.filter(history=i).values('name')) #detail정보 찾을때
+                directorNm_list.extend(Content.objects.filter(history=i).values('directorNm'))  #detail정보 찾을때
+
+        ##api 정보 가져오기##
+        for i in range(0, len(movieNm_list)):
+          
+            detail_list.extend(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])) 
+            detail_code.append(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])[0]['movieCd'])
+            
+        img_src = find_imgsrc("화려한휴가")        
+        return render(request, 'home.html',{'grade':grade, 'recommend':recommend_list, 'movieNm_list':movieNm_list, 'directorNm_list':directorNm_list, 'detail_list':detail_list, 'detail_code':detail_code, "img_src":img_src})
+    else:
+        return render(request,'home.html')
+
+    return redirect('home')
+
+
+    
+def recommend(request):
+    return render(request, 'recommend.html')
+
+
+def result(request):
+    return render(request, 'result.html')
+
+def test(request):
+    return render(request, 'test.html')
