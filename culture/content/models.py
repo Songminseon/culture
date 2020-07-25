@@ -8,9 +8,7 @@ class Content(models.Model):
 
     def __str__(self):
         name = self.name
-        history = self.history
-        new_name = name+history
-        return new_name
+        return name
 
 class Content_other(models.Model):
     title = models.CharField(max_length=50)

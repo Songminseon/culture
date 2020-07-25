@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from content.models import Content, Content_other
+from django.db.models import Q
 import requests
 import json
 from lxml.html import parse
@@ -24,7 +25,7 @@ def find_detail_bycode(detail_code):
     api_url = url_tpl.format(key=api_key, movie_code=detail_code) #반도랑 연상호 부분 parameter로 바꿔야함
     response=requests.get(url=api_url).json()
     
-    return response
+    return response['movieInfoResult']['movieInfo']
 
 def find_imgsrc(movieName):
     base_url = 'https://www.google.co.kr/search?q={movieNm}&source=lnms&tbm=isch&sa=X&ved=0ahUKEwic-taB9IXVAhWDHpQKHXOjC14Q_AUIBigB&biw=1842&bih=990' 
@@ -43,7 +44,7 @@ def find_imgsrc(movieName):
     for link in imgs:
         img_list.append(link.get('src'))
 
-    return img_list[1:2]
+    return img_list[1]
 
 
 
@@ -51,7 +52,7 @@ def main(request):
     content = Content.objects
     return render(request, 'main.html', {"content":content})
 
-def home(request):
+def result(request):
     if request.method == "POST":
         aws1 = request.POST.get('answer1')
         aws2 = request.POST.get('answer2')
@@ -62,6 +63,8 @@ def home(request):
         directorNm_list = []
         detail_list = []
         detail_code = []
+        info_dict = {}
+        img_list = []
 
         if aws1 == 'user1_choice1':
             grade = grade+1
@@ -80,30 +83,37 @@ def home(request):
         else:
             for i in history_list:
                 recommend_list.extend(Content.objects.filter(history=i))
-                movieNm_list.extend(Content.objects.filter(history=i).values('name')) #detail정보 찾을때
-                directorNm_list.extend(Content.objects.filter(history=i).values('directorNm'))  #detail정보 찾을때
+                movieNm_list.extend(Content.objects.filter(Q(history=i) & Q(category="영화")).values('name')) #detail정보 찾을때
+                directorNm_list.extend(Content.objects.filter(Q(history=i) & Q(category="영화")).values('directorNm'))  #detail정보 찾을때
 
         ##api 정보 가져오기##
         for i in range(0, len(movieNm_list)):
-          
-            detail_list.extend(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])) 
             detail_code.append(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])[0]['movieCd'])
+            img_src =  {'img_src' : find_imgsrc(movieNm_list[i]['name'])}
+            # detail_list.extend(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])) 
+            detail_list.append(img_src)
+            detail_list.append(find_detail_bycode(detail_code[i]))
             
-        img_src = find_imgsrc("화려한휴가")        
-        return render(request, 'home.html',{'grade':grade, 'recommend':recommend_list, 'movieNm_list':movieNm_list, 'directorNm_list':directorNm_list, 'detail_list':detail_list, 'detail_code':detail_code, "img_src":img_src})
-    else:
-        return render(request,'home.html')
 
-    return redirect('home')
+
+        info1 = {'grade':grade, 'detail_list':detail_list, 'detail_code':detail_code, "img_src":img_src}       
+        info_dict.update(info1)
+        return render(request, 'result.html', info_dict)
+    else:
+        return render(request,'test.html')
+
+    return redirect('test')
 
 
     
+
+
 def recommend(request):
     return render(request, 'recommend.html')
 
 
-def result(request):
-    return render(request, 'result.html')
+def home(request):
+    return render(request, 'home.html')
 
 def test(request):
     return render(request, 'test.html')
