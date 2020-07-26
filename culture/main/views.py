@@ -85,7 +85,7 @@ def result(request):
         if aws4 == "user4_choice1":
             grade = grade + 1
         else:
-            history_list.append('황산벌')
+            history_list.append('황산벌 전투')
         if aws5 == "user5_choice1":
             grade = grade + 1
         else:
@@ -104,14 +104,26 @@ def result(request):
         ##api 정보 가져오기##
         for i in range(0, len(movieNm_list)):
             detail_code.append(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])[0]['movieCd'])
-            img_src =  {'img_src' : find_imgsrc(movieNm_list[i]['name'])}
-            # detail_list.extend(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])) 
-            detail_list.append(img_src)
-            detail_list.append(find_detail_bycode(detail_code[i]))
+            img_src =  find_imgsrc(movieNm_list[i]['name'])
+            ## detail_list.extend(find_detail(movieNm_list[i]['name'],directorNm_list[i]['directorNm'])) 
+            
+            # detail_list.append(img_src)
+            detail_information = find_detail_bycode(detail_code[i])
+            movieNm = detail_information['movieNm']
+            movieNmEn = detail_information['movieNmEn']
+            showTm = detail_information['showTm']
+            directorNm = detail_information['directors'][0]['peopleNm']
+            ##추가해야할 요소
+            genreNm = detail_information['genres'][0]['genreNm']
+            actor_name = detail_information['actors'][0]['peopleNm'] + detail_information['actors'][1]['peopleNm'] + detail_information['actors'][2]['peopleNm']
+            watchGradeNm = detail_information['audits'][0]['watchGradeNm']
+
+            detail_list.append([{'movieNm':movieNm, 'movieNmEn':movieNmEn, 'showTm':showTm, 'directorNm':directorNm, 'img_src':img_src, 'genreNm':genreNm, 'actor_name':actor_name, 'watchGradeNm':watchGradeNm}])
+            # detail_list.append(find_detail_bycode(detail_code[i]))
             
 
 
-        info1 = {'grade':grade, 'detail_list':detail_list, 'detail_code':detail_code, "img_src":img_src}       
+        info1 = {'grade':grade, 'detail_list':detail_list}       
         info_dict.update(info1)
         return render(request, 'result.html', info_dict)
     else:

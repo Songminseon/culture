@@ -65,18 +65,19 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v10 ps34 s32 c35">
 
 
-{{detail_list}}
 {% for detail in detail_list %}
-<img src={{detail.img_src}} style="width: 100px; height: 100px;">
-
-{{detail.movieCd}}
-{{detail.movieNm}}
-
-{{detail.genres.genreNm}}
-
-</div>
-</div>
+{% for i in detail%}
+<img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
+{{i.movieNm}}
+{{i.movieNmEn}}
+{{i.showTm}}
+{{i.watchGradeNm}}
+{{i.actor_name}}
+{{i.genreNm}}
 {% endfor %}
+{% endfor %}
+</div>
+</div>
 
 <!--
 <div class="v7 ps35 s31 c36">
