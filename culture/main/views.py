@@ -8,6 +8,7 @@ from io import StringIO
 import os, sys
 from PIL import Image
 
+global grade
 
 def find_detail(get_movieNm, get_directorNm):
     api_key = '38d2c8854e32a32fd76a72ab8d5c7de5'
@@ -53,7 +54,7 @@ def main(request):
     return render(request, 'main.html', {"content":content})
 
 def result(request):
-    if request.method == "POST":
+    if request.method == "POST":   #중복체크 안되도록 구현
         aws1 = request.POST.get('answer1')
         aws2 = request.POST.get('answer2')
         grade = 0
@@ -104,8 +105,6 @@ def result(request):
 
     return redirect('test')
 
-
-    
 
 
 def recommend(request):
