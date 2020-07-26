@@ -57,6 +57,9 @@ def result(request):
     if request.method == "POST":   #중복체크 안되도록 구현
         aws1 = request.POST.get('answer1')
         aws2 = request.POST.get('answer2')
+        aws3 = request.POST.get('answer3')
+        aws4 = request.POST.get('answer4')
+        aws5 = request.POST.get('answer5')
         grade = 0
         history_list = []
         recommend_list = []
@@ -71,12 +74,23 @@ def result(request):
             grade = grade+1
         else:
             history_list.append('518민주화운동')
-
-        if aws2 == "user2_choice2":
+        if aws2 == "user2_choice1":
             grade = grade+1
-
         else:
-            history_list.append('을미사변')
+            history_list.append('광해')
+        if aws3 == "user3_choice2":
+            grade = grade + 1
+        else:
+            history_list.append('병자호란')
+        if aws4 == "user4_choice1":
+            grade = grade + 1
+        else:
+            history_list.append('황산벌')
+        if aws5 == "user5_choice1":
+            grade = grade + 1
+        else:
+            history_list.append('안중근')
+
 
         #############추천목록 구현#################
         if len(history_list) == 0:
