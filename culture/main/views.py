@@ -134,7 +134,28 @@ def result(request):
 
 
 def recommend(request):
-    return render(request, 'recommend.html')
+    if request.method == "POST":
+        history_list = []
+        choice = request.POST.getlist('user_choice')
+        for i in choice:
+            if i == 'history1':
+                history_list.append('518민주화운동')
+            elif i == 'history2':
+                history_list.append('을미사변')
+            elif i == 'history3':
+                history_list.append('삼국시대')
+            elif i == 'history4':
+                history_list.append('인천상륙작전')
+            elif i == 'history5':
+                history_list.append('625전쟁')
+            else:
+                history_list.append('임진왜란')
+
+        
+        return render(request, 'recommend.html', {'history':history_list})
+    else:
+        return render(request, 'recommend.html')
+    return redirect('recommend')
 
 
 def home(request):

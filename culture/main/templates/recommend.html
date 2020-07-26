@@ -64,12 +64,13 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v14 ps49 s47 c49">
 
 <form method = "POST" action = "{% url 'recommend' %}">
-    <input type="checkbox" value="user_choice" name="history1">518민주화운동
-    <input type="checkbox" value="user_choice" name="history2">을미사변
-    <input type="checkbox" value="user_choice" name="history3">삼국시대
-    <input type="checkbox" value="user_choice" name="history4">인천상륙작전
-    <input type="checkbox" value="user_choice" name="history5">625전쟁
-    <input type="checkbox" value="user_choice" name="history6">임진왜란
+    {% csrf_token %}
+    <input type="checkbox" name="user_choice" value="history1">518민주화운동
+    <input type="checkbox" name="user_choice" value="history2">을미사변
+    <input type="checkbox" name="user_choice" value="history3">삼국시대
+    <input type="checkbox" name="user_choice" value="history4">인천상륙작전
+    <input type="checkbox" name="user_choice" value="history5">625전쟁
+    <input type="checkbox" name="user_choice" value="history6">임진왜란
     <input type="submit" value="검색하기">
 </form>
 
@@ -78,7 +79,7 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 </div>
 <div class="v11 ps50 s46 c50">
 <div class="v14 ps49 s47 c51">
-<p class="p4 f16">RECOMMEND2</p>
+<p class="p4 f16">{{history}}</p>
 </div>
 </div>
 <div class="v ps s c">
