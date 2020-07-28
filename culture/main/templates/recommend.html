@@ -70,7 +70,13 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     <input type="checkbox" name="user_choice" value="history3">삼국시대
     <input type="checkbox" name="user_choice" value="history4">인천상륙작전
     <input type="checkbox" name="user_choice" value="history5">625전쟁
-    <input type="checkbox" name="user_choice" value="history6">임진왜란
+    <input type="checkbox" name="user_choice" value="history6">임진왜란<br>
+    <input type="checkbox" name="user_choice2" value="category1">영화
+    <input type="checkbox" name="user_choice2" value="category2">연극
+    <input type="checkbox" name="user_choice2" value="category3">뮤지컬
+    (종류는 1가지만 골라주세요!)
+
+    
     <input type="submit" value="검색하기">
 </form>
 
@@ -79,12 +85,32 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 </div>
 <div class="v11 ps50 s46 c50">
 <div class="v14 ps49 s47 c51">
-<p class="p4 f16">{{history}}</p>
+<p class="p4 f16">
+
+//{{test}}//
+    {% for detail in detail_list %}
+{% for i in detail%}
+<img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
+{{i.movieNm}}
+{{i.movieNmEn}}
+{{i.showTm}}
+{{i.watchGradeNm}}
+{{i.actor_name}}
+{{i.genreNm}}
+{{i.title}}
+{{i.description}}
+{% endfor %}
+{% endfor %}
+</p>
 </div>
 </div>
 <div class="v ps s c">
 <div class="v2 ps21 s2 c21">
-<p class="p f">RECOMMEND3</p>
+<p class="p f">
+    
+
+
+</p>
 </div>
 </div>
 <div class="v ps3 s c22"></div>

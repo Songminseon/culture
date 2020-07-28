@@ -4,14 +4,14 @@ class Content(models.Model):
     category = models.CharField(max_length=100)
     name = models.CharField(max_length=100)
     history = models.CharField(max_length=100)
-    directorNm = models.CharField(max_length=20)
+    directorNm = models.CharField(max_length=20, blank=True)
   
     def __str__(self):
         name = self.name
         return name
 
 class Content_other(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=30)
     description = models.TextField()
     referenceIdentifier = models.CharField(max_length=255)
     rights = models.CharField(max_length=30)
