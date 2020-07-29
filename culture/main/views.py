@@ -104,11 +104,11 @@ def result(request):
             if aws4 == "user4_choice1":
                 grade = grade + 1
             else:
-                history_list.append('황산벌 전투')
+                history_list.append('삼국시대')
             if aws5 == "user5_choice1":
                 grade = grade + 1
             else:
-                history_list.append('안중근')
+                history_list.append('일제강점기')
 
         
             #############추천목록 구현#################
@@ -135,15 +135,20 @@ def result(request):
                 directorNm = detail_information['directors'][0]['peopleNm']
                 ##추가해야할 요소
                 genreNm = detail_information['genres'][0]['genreNm']
-                actor_name = detail_information['actors'][0]['peopleNm'] + detail_information['actors'][1]['peopleNm'] + detail_information['actors'][2]['peopleNm']
+                actor_name = detail_information['actors'][0]['peopleNm'] + ',' + detail_information['actors'][1]['peopleNm'] + ',' + detail_information['actors'][2]['peopleNm']
                 watchGradeNm = detail_information['audits'][0]['watchGradeNm']
+                
+                openDt = detail_information['openDt']
+                companyNm = detail_information['companys'][0]['companyNm']
+                
 
-                detail_list.append([{'movieNm':movieNm, 'movieNmEn':movieNmEn, 'showTm':showTm, 'directorNm':directorNm, 'img_src':img_src, 'genreNm':genreNm, 'actor_name':actor_name, 'watchGradeNm':watchGradeNm, 'url':url}])
+                detail_list.append([{'movieNm':movieNm, 'movieNmEn':movieNmEn, 'showTm':showTm, 'directorNm':directorNm, 'img_src':img_src,'genreNm':genreNm, 'actor_name':actor_name, 'watchGradeNm':watchGradeNm, 'url':url, 'openDt':openDt, 'companyNm':companyNm}])
                 # detail_list.append(find_detail_bycode(detail_code[i]))
                 
             for i in history_list:
                 theater_list.extend(Content.objects.filter(Q(history=i) & Q(category="연극")).values('name'))
                 musical_list.extend(Content.objects.filter(Q(history=i) & Q(category="뮤지컬")).values('name'))
+           
 
             if len(theater_list) != 0:
                 for i in range(0, len(theater_list)):
@@ -153,6 +158,7 @@ def result(request):
                     img_src = find_imgsrc(theater_list[i]['name'],"연극")
                     detail_theater.append([{'title':info_title, 'description':info_description, 'img_src':img_src}])
             
+            test1 = [] 
             if len(musical_list) != 0:
                 for i in range(0, len(musical_list)):
                     info_query = Content_other.objects.filter(title=(musical_list[i]['name'])).values()
@@ -163,7 +169,7 @@ def result(request):
                     detail_musical.append([{'title':info_title, 'description':info_description, 'img_src':img_src, 'url':url}])
 
 
-        info1 = {'grade':grade, 'history_list':history_list, 'detail_list':detail_list, 'detail_theater':detail_theater, 'detail_musical':detail_musical}       
+        info1 = {'test1':test1,'test2':musical_list,'grade':grade, 'history_list':history_list, 'detail_list':detail_list, 'detail_theater':detail_theater, 'detail_musical':detail_musical}       
         info_dict.update(info1)
 
         return render(request, 'result.html', info_dict)

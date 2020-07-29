@@ -22,6 +22,8 @@ class Content_other(models.Model):
         title = self.title
         return self.title
 
+    def summary(self):
+        return self.description[0:30]
 ##영화, 연극, 뮤지컬 모두 외래키 참조해서 API로 가져올거임
 
 # Create your models here.

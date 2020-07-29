@@ -23,5 +23,5 @@ def find_detail_bycode(detail_code):
     
     return response['movieInfoResult']['movieInfo']
 
-# print(find_detail("반도","연상호"))
-print(find_detail_bycode('20193450'))
+print(find_detail('1987','장준환'))
+print(find_detail_bycode('20170590'))

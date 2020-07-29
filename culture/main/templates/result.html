@@ -61,7 +61,7 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v7 ps33 s31 c31">
 <div class="v7 ps34 s32 c32">
 <div class="wrapper">
-    {{test1}}//{{test2}}////
+ 
     {% if messages %}
 {% for i in messages %}
 {{i.message}}
@@ -80,25 +80,26 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {{i.watchGradeNm}}
 {{i.actor_name}}
 {{i.genreNm}}
+{{i.openDt}}
+{{i.companyNm}}
+{{i.staffs}}
 <a href={{i.url}}>더보기</a>
 {% endfor %}
 {% endfor %}
 </div>
 </div>
-<!--
+
 연극추천!!
 
 {% for detail in detail_theater %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
 {{i.title}}
-{{i.description}}
+{{i.summary}}
 
 {% endfor %}
 {% endfor %}
 <a href="http://ticket.yes24.com/Search/">연극 더 찾아보기</a>
-</div>
-</div>
 
 뮤지컬추천!!
 
@@ -107,11 +108,13 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
 {{i.title}}
 {{i.description}}
+
 <a href={{i.url}}>더보기</a>
 
 {% endfor %}
 {% endfor %}
--->
+
+
 </div>
 </div>
 </div>
