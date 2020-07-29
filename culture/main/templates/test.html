@@ -48,7 +48,13 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v6 ps8 s13 c14">
 <p class="p2 f4">역사탐구 퀴즈</p>
 <p class="p2 f5"><br></p>
-<p class="p2 f5">역사문제를 푸시고 서비스를 제공받으세요</p>
+<p class="p2 f5">역사문제를 푸시고 서비스를 제공받으세요
+    {% if messages %}
+{% for i in messages %}
+{{i.message}}
+{% endfor %}
+{% endif %}
+</p>
 </div>
 <div class="v3 ps15 s14 c15"></div>
 </div>

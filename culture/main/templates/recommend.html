@@ -65,17 +65,24 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 
 <form method = "POST" action = "{% url 'recommend' %}">
     {% csrf_token %}
-    <input type="checkbox" name="user_choice" value="history1">518민주화운동
-    <input type="checkbox" name="user_choice" value="history2">을미사변
-    <input type="checkbox" name="user_choice" value="history3">삼국시대
-    <input type="checkbox" name="user_choice" value="history4">인천상륙작전
-    <input type="checkbox" name="user_choice" value="history5">625전쟁
-    <input type="checkbox" name="user_choice" value="history6">임진왜란<br>
+    역사목록 : 
+    <input type="checkbox" name="user_choice" value="history1">삼국시대
+    <input type="checkbox" name="user_choice" value="history2">세종
+    <input type="checkbox" name="user_choice" value="history3">을미사변
+    <input type="checkbox" name="user_choice" value="history4">일제강점기
+    <input type="checkbox" name="user_choice" value="history5">임시정부
+    <input type="checkbox" name="user_choice" value="history6">625전쟁
+    <input type="checkbox" name="user_choice" value="history7">518민주화운동
+    <input type="checkbox" name="user_choice" value="history8">근대사회
+    <input type="checkbox" name="user_choice" value="history9">남북분단
+    <input type="checkbox" name="user_choice" value="history10">현대사회<br>
+    
+    카테고리 :
     <input type="checkbox" name="user_choice2" value="category1">영화
     <input type="checkbox" name="user_choice2" value="category2">연극
     <input type="checkbox" name="user_choice2" value="category3">뮤지컬
     (종류는 1가지만 골라주세요!)
-
+    <br>
     
     <input type="submit" value="검색하기">
 </form>
@@ -86,9 +93,15 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v11 ps50 s46 c50">
 <div class="v14 ps49 s47 c51">
 <p class="p4 f16">
+   
+{% if messages %}
+{% for i in messages %}
+{{i.message}}
+{% endfor %}
+{% endif %}
 
-//{{test}}//
-    {% for detail in detail_list %}
+{{category}} 추천목록!!
+{% for detail in detail_list %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
 {{i.movieNm}}

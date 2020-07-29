@@ -27,4 +27,6 @@ urlpatterns = [
     path('recommend/', main.views.recommend, name="recommend"),
     path('test/', main.views.test, name="test"),
     path('home/', main.views.home, name="home"),
+    path('qna/', main.views.qna, name="qna"),
+    path('qna/create', main.views.create, name="create"),
 ]

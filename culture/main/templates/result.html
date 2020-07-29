@@ -48,7 +48,8 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v10 ps23 s28 c28">
 <p class="p3 f9">역사탐구 퀴즈 결과</p>
 <p class="p3 f10"><br></p>
-<p class="p3 f10">역사문제를 푸시고 서비스를 제공받으세요</p>
+<p class="p3 f10"> 문화컨텐츠 이거 어때요??
+</p>
 </div>
 <div class="v7 ps30 s29 c29"></div>
 </div>
@@ -60,8 +61,16 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v7 ps33 s31 c31">
 <div class="v7 ps34 s32 c32">
 <div class="wrapper">
+    {{test1}}//{{test2}}////
+    {% if messages %}
+{% for i in messages %}
+{{i.message}}
+{% endfor %}
+{% endif %}
+{{grade}} / 5
 영화추천!!
-<!--
+
+
 {% for detail in detail_list %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
@@ -71,11 +80,12 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {{i.watchGradeNm}}
 {{i.actor_name}}
 {{i.genreNm}}
+<a href={{i.url}}>더보기</a>
 {% endfor %}
 {% endfor %}
 </div>
 </div>
--->
+<!--
 연극추천!!
 
 {% for detail in detail_theater %}
@@ -86,12 +96,22 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 
 {% endfor %}
 {% endfor %}
+<a href="http://ticket.yes24.com/Search/">연극 더 찾아보기</a>
 </div>
 </div>
 
 뮤지컬추천!!
 
-{{detail_musical}}
+{% for detail in detail_musical %}
+{% for i in detail%}
+<img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
+{{i.title}}
+{{i.description}}
+<a href={{i.url}}>더보기</a>
+
+{% endfor %}
+{% endfor %}
+-->
 </div>
 </div>
 </div>
