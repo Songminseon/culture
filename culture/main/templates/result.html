@@ -74,15 +74,14 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {% for detail in detail_list %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
-{{i.movieNm}}
-{{i.movieNmEn}}
-{{i.showTm}}
-{{i.watchGradeNm}}
-{{i.actor_name}}
-{{i.genreNm}}
-{{i.openDt}}
-{{i.companyNm}}
-{{i.staffs}}
+영화이름 : {{i.movieNm}}({{i.movieNmEn}})
+상영시간 : {{i.showTm}}
+관람등급 : {{i.watchGradeNm}}
+출연배우 : {{i.actor_name}}
+장르 : {{i.genreNm}}
+출시일 : {{i.openDt}}
+회사 : {{i.companyNm}}
+스태프 : {{i.staffs}}
 <a href={{i.url}}>더보기</a>
 {% endfor %}
 {% endfor %}
@@ -94,8 +93,8 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {% for detail in detail_theater %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
-{{i.title}}
-{{i.summary}}
+제목 : {{i.title}}
+내용 : {{i.description}}
 
 {% endfor %}
 {% endfor %}
@@ -106,8 +105,8 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {% for detail in detail_musical %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
-{{i.title}}
-{{i.description}}
+제목 : {{i.title}}
+내용 : {{i.description}}
 
 <a href={{i.url}}>더보기</a>
 

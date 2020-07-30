@@ -104,13 +104,12 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {% for detail in detail_list %}
 {% for i in detail%}
 <img src={{i.img_src}} alt="a" style="height: 150px; width: 200px;">
-{{i.movieNm}}
-{{i.movieNmEn}}
+제목 : {{i.movieNm}}{{i.title}}
+정보 : {{i.movieNmEn}}
 {{i.showTm}}
 {{i.watchGradeNm}}
 {{i.actor_name}}
 {{i.genreNm}}
-{{i.title}}
 {{i.description}}
 {% endfor %}
 {% endfor %}
