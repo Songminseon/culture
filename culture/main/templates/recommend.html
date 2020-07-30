@@ -68,6 +68,7 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 <div class="v15 ps44 s50 c44">
 <div class="wrapper2">
 <form method="POST" action="{% url 'recommend' %}">
+  {% csrf_token %}
     <input type="checkbox"  name="user_choice" value="history1">삼국시대
     <input type="checkbox"  name="user_choice" value="history2">세종
     <input type="checkbox"  name="user_choice" value="history3">을미사변
