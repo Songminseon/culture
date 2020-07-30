@@ -1,5 +1,3 @@
-{% load static %}
-<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,98 +5,68 @@
 <title>RECOMMEND</title>
 <meta name="referrer" content="same-origin">
 <meta name="viewport" content="width=1200">
-<style>body{-webkit-text-size-adjust:none}@font-face{font-family:"EB Garamond";src:url('css/EBGaramond-Regular.woff2') format('woff2'),url('css/EBGaramond-Regular.woff') format('woff');font-weight:400}body>div{font-size:0}p, span,h1,h2,h3,h4,h5,h6{margin:0;word-spacing:normal;word-wrap:break-word;-ms-word-wrap:break-word;pointer-events:auto}sup{font-size:inherit;vertical-align:baseline;position:relative;top:-0.4em}sub{font-size:inherit;vertical-align:baseline;position:relative;top:0.4em}ul{display:block;word-spacing:normal;word-wrap:break-word;list-style-type:none;padding:0;margin:0;-moz-padding-start:0;-khtml-padding-start:0;-webkit-padding-start:0;-o-padding-start:0;-padding-start:0;-webkit-margin-before:0;-webkit-margin-after:0}li{display:block}li p{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}form{display:inline-block}a{text-decoration:inherit;color:inherit;-webkit-tap-highlight-color:rgba(0,0,0,0)}textarea{resize:none}.shm-l{float:left;clear:left}.shm-r{float:right;clear:right}.whitespacefix{word-spacing:-1px}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{font-size:0;margin:0}audio,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0;outline:0}b,strong{font-weight:700}dfn{font-style:italic}h1,h2,h3,h4,h5,h6{font-size:1em;line-height:1;margin:0 0}img{border:0}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=submit]{-webkit-appearance:button;cursor:pointer;box-sizing:border-box;white-space:normal}input[type=password],input[type=text],textarea{-webkit-appearance:none;appearance:none;box-sizing:border-box}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal;border-radius:0}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}textarea{overflow:auto;box-sizing:border-box;border-color:#ddd}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}:-webkit-full-screen-ancestor:not(iframe){-webkit-clip-path:initial!important}
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }#b{background-color:#fff}.v11{display:inline-block;*display:inline;zoom:1;vertical-align:top}.ps37{position:relative;margin-top:0}.s33{width:100%;min-width:1200px;min-height:255px}.c38{z-index:1;pointer-events:none;border:0;background-color:#000}.ps38{position:relative;margin-top:24px}.v12{display:block;*display:block;zoom:1;vertical-align:top}.s34{min-width:1200px;width:1200px;margin-left:auto;margin-right:auto}.ps39{position:relative;margin-left:0;margin-top:0}.s35{min-width:1115px;width:1115px;min-height:47px}.s36{min-width:114px;width:114px;min-height:47px}.c40{z-index:4;pointer-events:auto}.f12{font-family:"Arial Unicode MS", sans-serif;font-size:30px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;line-height:40px;letter-spacing:normal;text-shadow:none;text-indent:0;text-align:left;padding-top:4px;padding-bottom:3px;margin-top:0;margin-bottom:0}.btn3{border:0;background-color:transparent;color:#fff}.btn3:hover{background-color:transparent;border-color:#000;color:#fff}.btn3:active{background-color:transparent;border-color:#000;color:#fff}.v13{display:inline-block;overflow:hidden;outline:0}.s37{width:114px;padding-right:0;height:40px}.ps40{position:relative;margin-left:673px;margin-top:12px}.s38{min-width:92px;width:92px;min-height:25px}.c41{z-index:8;pointer-events:auto}.f13{font-family:"Arial Unicode MS", sans-serif;font-size:16px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;line-height:21px;letter-spacing:normal;text-shadow:none;text-indent:0;text-align:center;padding-top:2px;padding-bottom:2px;margin-top:0;margin-bottom:0}.s39{width:92px;padding-right:0;height:21px}.ps41{position:relative;margin-left:24px;margin-top:12px}.c42{z-index:10;pointer-events:auto}.ps42{position:relative;margin-left:28px;margin-top:12px}.c43{z-index:11;pointer-events:auto}.ps43{position:relative;margin-top:-127px}.s40{pointer-events:none;min-width:1200px;width:1200px;margin-left:auto;margin-right:auto}.ps44{position:relative;margin-left:200px;margin-top:0}.s41{min-width:800px;width:800px;min-height:226px}.c44{z-index:3;border:0;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background-color:#fff}.ps45{position:relative;margin-left:85px;margin-top:23px}.s42{min-width:627px;width:627px;min-height:180px}.w3{line-height:0}.v14{display:inline-block;*display:inline;zoom:1;vertical-align:top;overflow:hidden}.s43{min-width:627px;width:627px;min-height:180px;height:180px}.c45{z-index:13;pointer-events:auto}.p4{padding-top:0;text-indent:0;padding-bottom:0;padding-right:0;text-align:center}.f14{font-family:"Arial Unicode MS", sans-serif;font-size:44px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#000;background-color:initial;line-height:83px;letter-spacing:normal;text-shadow:none}.f15{font-family:"Arial Unicode MS", sans-serif;font-size:17px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#000;background-color:initial;line-height:31px;letter-spacing:normal;text-shadow:none}.ps46{position:relative;margin-left:78px;margin-top:-95px}.s44{min-width:474px;width:474px;min-height:1px;-ms-transform:scale(1, -1);-webkit-transform:scale(1, -1);transform:scale(1, -1);-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=1.000000, M12=0, M21=0, M22=-1.000000, SizingMethod='auto expand')"}.c46{z-index:14;border:0;background-color:#000}.ps47{position:relative;margin-top:-99px}.s45{width:100%;min-width:1200px;min-height:1616px}.c47{z-index:2;pointer-events:none;border:0;background-color:rgba(192,192,192,.25);behavior:url(js/PIE.htc);-pie-background:rgba(192,192,192,0.246523);behavior:url(js/PIE.htc);-pie-background:rgba(192,192,192,0.246523)}.ps48{position:relative;margin-top:132px}.s46{min-width:800px;width:800px;min-height:237px}.c48{z-index:5;border:0;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background-color:#fff}.ps49{position:relative;margin-left:99px;margin-top:29px}.s47{min-width:600px;width:600px;min-height:180px;height:180px}.c49{z-index:12;pointer-events:auto}.f16{font-family:"EB Garamond";font-size:18px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#000;background-color:initial;line-height:33px;letter-spacing:normal;text-shadow:none}.ps50{position:relative;margin-left:200px;margin-top:40px}.c50{z-index:6;border:0;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background-color:#fff}.c51{z-index:15;pointer-events:auto}</style>
-<link as="style" onload="this.onload=null;this.rel='stylesheet'" rel="preload" href="{% static 'css/site.20200725000936.css' %}">
-<noscript><link rel="stylesheet" href="{% static 'css/site.20200725000936.css' %}">></noscript>-->
+<style>body{-webkit-text-size-adjust:none}body>div{font-size:0}p, span,h1,h2,h3,h4,h5,h6{margin:0;word-spacing:normal;word-wrap:break-word;-ms-word-wrap:break-word;pointer-events:auto}sup{font-size:inherit;vertical-align:baseline;position:relative;top:-0.4em}sub{font-size:inherit;vertical-align:baseline;position:relative;top:0.4em}ul{display:block;word-spacing:normal;word-wrap:break-word;list-style-type:none;padding:0;margin:0;-moz-padding-start:0;-khtml-padding-start:0;-webkit-padding-start:0;-o-padding-start:0;-padding-start:0;-webkit-margin-before:0;-webkit-margin-after:0}li{display:block}li p{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}form{display:inline-block}a{text-decoration:inherit;color:inherit;-webkit-tap-highlight-color:rgba(0,0,0,0)}textarea{resize:none}.shm-l{float:left;clear:left}.shm-r{float:right;clear:right}.whitespacefix{word-spacing:-1px}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{font-size:0;margin:0}audio,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0;outline:0}b,strong{font-weight:700}dfn{font-style:italic}h1,h2,h3,h4,h5,h6{font-size:1em;line-height:1;margin:0 0}img{border:0}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type=button],input[type=submit]{-webkit-appearance:button;cursor:pointer;box-sizing:border-box;white-space:normal}input[type=password],input[type=text],textarea{-webkit-appearance:none;appearance:none;box-sizing:border-box}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal;border-radius:0}input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}textarea{overflow:auto;box-sizing:border-box;border-color:#ddd}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}:-webkit-full-screen-ancestor:not(iframe){-webkit-clip-path:initial!important}
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }.menu-content{cursor:pointer;position:relative}li{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+#b{background-color:#fff}.v15{display:inline-block;*display:inline;zoom:1;vertical-align:top}.ps32{position:relative;margin-top:0}.s35{width:100%;min-width:1200px;min-height:255px}.c33{z-index:1;pointer-events:none;border:0;background-image:url(images/1-1200.jpeg);background-color:#000;background-repeat:no-repeat;background-position:50% 50%;background-size:cover;background-clip:padding-box}.ps33{position:relative;margin-top:24px}.v16{display:block;*display:block;zoom:1;vertical-align:top}.s36{min-width:1200px;width:1200px;margin-left:auto;margin-right:auto}.ps34{position:relative;margin-left:0;margin-top:0}.s37{min-width:1119px;width:1119px;min-height:47px}.s38{min-width:114px;width:114px;min-height:47px}.c35{z-index:4;pointer-events:auto}.f11{font-family:"Arial Unicode MS", sans-serif;font-size:30px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;line-height:40px;letter-spacing:normal;text-shadow:none;text-indent:0;text-align:left;padding-top:4px;padding-bottom:3px;margin-top:0;margin-bottom:0}.btn3{border:0;background-color:transparent;color:#fff}.btn3:hover{background-color:transparent;border-color:#000;color:#fff}.btn3:active{background-color:transparent;border-color:#000;color:#fff}.v17{display:inline-block;overflow:hidden;outline:0}.s39{width:114px;padding-right:0;height:40px}.v18{display:inline-block;*display:inline;zoom:1;vertical-align:top;overflow:visible}.ps35{position:relative;margin-left:552px;margin-top:10px}.s40{min-width:453px;width:453px;min-height:28px;height:28px}.c36{z-index:6;pointer-events:auto}.v19{display:inline-block;*display:inline-block;zoom:1;vertical-align:top}.m3{padding:0px 0px 0px 0px}.ml3{outline:0}.s41{min-width:105px;width:105px;min-height:28px;height:28px}.mcv3{display:inline-block}.s42{min-width:105px;width:105px;min-height:28px}.c37{pointer-events:none;border:0;-webkit-border-radius:14px;-moz-border-radius:14px;border-radius:14px;background-color:transparent}.v20{display:inline-block;*display:inline;zoom:1;vertical-align:top;overflow:hidden}.c38{pointer-events:auto}.p4{padding-top:0;text-indent:0;padding-bottom:0;padding-right:0;text-align:center}.f12{font-family:"Arial Unicode MS", sans-serif;font-size:16px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#fff;background-color:initial;line-height:24px;letter-spacing:normal;text-shadow:none}.ps36{position:relative;margin-left:11px;margin-top:0}.ps37{position:relative;margin-top:-127px}.s43{pointer-events:none;min-width:1200px;width:1200px;margin-left:auto;margin-right:auto}.ps38{position:relative;margin-left:200px;margin-top:0}.s44{min-width:800px;width:800px;min-height:226px}.c39{z-index:3;border:0;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background-color:#fff}.ps39{position:relative;margin-left:85px;margin-top:23px}.s45{min-width:627px;width:627px;min-height:180px}.w3{line-height:0}.s46{min-width:627px;width:627px;min-height:180px;height:180px}.c40{z-index:5;pointer-events:auto}.f13{font-family:"Arial Unicode MS", sans-serif;font-size:44px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#000;background-color:initial;line-height:83px;letter-spacing:normal;text-shadow:none}.f14{font-family:"Arial Unicode MS", sans-serif;font-size:17px;font-weight:400;font-style:normal;text-decoration:none;text-transform:none;color:#000;background-color:initial;line-height:31px;letter-spacing:normal;text-shadow:none}.ps40{position:relative;margin-left:78px;margin-top:-95px}.s47{min-width:474px;width:474px;min-height:1px;-ms-transform:scale(1, -1);-webkit-transform:scale(1, -1);transform:scale(1, -1);-ms-filter:"progid:DXImageTransform.Microsoft.Matrix(M11=1.000000, M12=0, M21=0, M22=-1.000000, SizingMethod='auto expand')"}.c41{z-index:8;border:0;background-color:#000}.ps41{position:relative;margin-top:-99px}.s48{width:100%;min-width:1200px;min-height:1616px}.c42{z-index:2;pointer-events:none;border:0;background-color:rgba(192,192,192,.25);behavior:url(js/PIE.htc);-pie-background:rgba(192,192,192,0.246523);behavior:url(js/PIE.htc);-pie-background:rgba(192,192,192,0.246523)}.ps42{position:relative;margin-top:151px}.ps43{position:relative;margin-left:199px;margin-top:0}.s49{min-width:800px;width:800px;min-height:657px}.c43{z-index:7;border:0;-webkit-border-radius:30px;-moz-border-radius:30px;border-radius:30px;background-color:#fff}.ps44{position:relative;margin-left:50px;margin-top:29px}.s50{min-width:703px;width:703px;min-height:599px}.c44{z-index:9;pointer-events:auto}.wrapper2{font-size:15px;line-height:1.4;min-height:599px}.wrapper2 div, .wrapper2 p, .wrapper2 a{font-size:15px;line-height:1.4}.wrapper2 input{font-size:15px;line-height:1.4;margin:3px 2px 3px 2px}.menu-device{background-color:rgb(0,0,0);display:none}@media (-webkit-min-device-pixel-ratio:2), (min-resolution:192dpi) {.c33{background-image:url(images/1-1200.jpeg)}}@media (min-width:1200px) {.c33{background-image:url(images/1-1200.jpeg)}}@media (min-width:1600px) {.c33{background-image:url(images/1-1200.jpeg)}}</style>
+<link as="style" onload="this.onload=null;this.rel='stylesheet'" rel="preload" href="css/site.20200730192345.css">
+<noscript><link rel="stylesheet" href="css/site.20200730192345.css"></noscript>
 <!--[if lte IE 7]>
-<link rel="stylesheet" href="css/site.20200725000936-lteIE7.css" type="text/css">
+<link rel="stylesheet" href="css/site.20200730192345-lteIE7.css" type="text/css">
 <![endif]-->
 <!--[if lte IE 8]>
-<link rel="stylesheet" href="css/site.20200725000936-lteIE8.css" type="text/css">
+<link rel="stylesheet" href="css/site.20200730192345-lteIE8.css" type="text/css">
 <![endif]-->
 <!--[if gte IE 9]>
-<link rel="stylesheet" href="css/site.20200725000936-gteIE9.css" type="text/css">
+<link rel="stylesheet" href="css/site.20200730192345-gteIE9.css" type="text/css">
 <![endif]-->
-<!--
 <script>!function(t){var e=!1;try{e=t.document.createElement("link").relList.supports("preload")}catch(t){}if(!e)for(var n=t.document.getElementsByTagName("link"),a=0;a<n.length;a++){var o=n[a];"preload"===o.rel&&"style"===o.getAttribute("as")&&function(t){function e(){if(!t.getAttribute("data-l")){t.setAttribute("data-l",!0),t.addEventListener?t.removeEventListener("load",e):t.attachEvent&&t.detachEvent("onload",e),t.setAttribute("onload",null),t.media="all";var n=window.location.hash;n.length>1&&setTimeout(function(){var t=document.querySelectorAll('[name="'+n.slice(1)+'"]')[0],e=0;if(t.offsetParent)do{e+=t.offsetTop}while(t=t.offsetParent);window.scrollTo(0,e)},100)}}t.addEventListener?t.addEventListener("load",e):t.attachEvent&&t.attachEvent("onload",e),setTimeout(function(){t.rel="stylesheet",t.media="nl x"}),setTimeout(e,3e3)}(o)}}(this);
 </script>
 </head>
 <body id="b">
-<div class="v11 ps37 s33 c38">
-<div class="ps38 v12 s34">
-<div class="v11 ps39 s35 c39">
-<div class="v11 ps39 s36 c40">
-<a href="#" class="f12 btn3 v13 s37">역.잘.알</a>
+<div class="v15 ps32 s35 c33">
+<div class="ps33 v16 s36">
+<div class="v15 ps34 s37 c34">
+<div class="v15 ps34 s38 c35">
+<a href="{% url 'main'%}" class="f11 btn3 v17 s39">역.잘.알</a>
 </div>
-<div class="v11 ps40 s38 c41">
-<a href="./" class="f13 btn3 v13 s39">역사퀴즈</a>
-</div>
-<div class="v11 ps41 s38 c42">
-<a href="result.html" class="f13 btn3 v13 s39">결과</a>
-</div>
-<div class="v11 ps42 s38 c43">
-<a href="#" class="f13 btn3 v13 s39">추천</a>
-</div>
-</div>
-</div>
-</div>
-<div class="ps43 v12 s40">
-<div class="v11 ps44 s41 c44">
-<div class="v11 ps45 s42 c39">
-<div class="v11 ps39 s42 w3">
-<div class="v14 ps39 s43 c45">
-<p class="p4 f14">추천서비스</p>
-<p class="p4 f15"><br></p>
-<p class="p4 f15">역사문제를 푸시고 서비스를 제공받으세요</p>
-</div>
-<div class="v11 ps46 s44 c46"></div>
+<div class="v18 ps35 s40 c36">
+<ul class="menu-dropdown v19 ps34 s40 m3" id="m1">
+<li class="v15 ps34 s41 mit3">
+<a href="{% url 'test'%}" class="ml3"><div class="menu-content mcv3"><div class="v15 ps34 s42 c37"><div class="v20 ps34 s41 c38"><p class="p4 f12">역사퀴즈</p></div></div></div></a>
+</li>
+<li class="v15 ps36 s41 mit3">
+<a href="{% url result%}" class="ml3"><div class="menu-content mcv3"><div class="v15 ps34 s42 c37"><div class="v20 ps34 s41 c38"><p class="p4 f12">결과</p></div></div></div></a>
+</li>
+<li class="v15 ps36 s41 mit3">
+<a href="{% url 'recommend'%}" class="ml3"><div class="menu-content mcv3"><div class="v15 ps34 s42 c37"><div class="v20 ps34 s41 c38"><p class="p4 f12">검색</p></div></div></div></a>
+</li>
+<li class="v15 ps36 s41 mit3">
+<a href="{% url 'qna'%}" class="ml3"><div class="menu-content mcv3"><div class="v15 ps34 s42 c37"><div class="v20 ps34 s41 c38"><p class="p4 f12">문의</p></div></div></div></a>
+</li>
+</ul>
 </div>
 </div>
 </div>
-</div>-->
-
-<div class="v11 ps47 s45 c47">
-<div class="ps48 v12 s34">
-<div class="v11 ps44 s46 c48">
-<div class="v14 ps49 s47 c49">
-
-<form method = "POST" action = "{% url 'recommend' %}">
-    {% csrf_token %}
-    역사목록 : 
-    <input type="checkbox" name="user_choice" value="history1">삼국시대
-    <input type="checkbox" name="user_choice" value="history2">세종
-    <input type="checkbox" name="user_choice" value="history3">을미사변
-    <input type="checkbox" name="user_choice" value="history4">일제강점기
-    <input type="checkbox" name="user_choice" value="history5">임시정부
-    <input type="checkbox" name="user_choice" value="history6">625전쟁
-    <input type="checkbox" name="user_choice" value="history7">518민주화운동
-    <input type="checkbox" name="user_choice" value="history8">근대사회
-    <input type="checkbox" name="user_choice" value="history9">남북분단
-    <input type="checkbox" name="user_choice" value="history10">현대사회<br>
-    
-    카테고리 :
-    <input type="checkbox" name="user_choice2" value="category1">영화
-    <input type="checkbox" name="user_choice2" value="category2">연극
-    <input type="checkbox" name="user_choice2" value="category3">뮤지컬
-    (종류는 1가지만 골라주세요!)
-    <br>
-    
-    <input type="submit" value="검색하기">
-</form>
-
-<p class="p4 f16"></p>
+</div>
+<div class="ps37 v16 s43">
+<div class="v15 ps38 s44 c39">
+<div class="v15 ps39 s45 c34">
+<div class="v15 ps34 s45 w3">
+<div class="v20 ps34 s46 c40">
+<p class="p4 f13">검색서비스</p>
+<p class="p4 f14"><br></p>
+<p class="p4 f14">역사문제를 푸시고 서비스를 제공받으세요</p>
+</div>
+<div class="v15 ps40 s47 c41"></div>
 </div>
 </div>
-<div class="v11 ps50 s46 c50">
-<div class="v14 ps49 s47 c51">
-<p class="p4 f16">
-   
-{% if messages %}
-{% for i in messages %}
-{{i.message}}
-{% endfor %}
-{% endif %}
+</div>
+</div>
+<div class="v15 ps41 s48 c42">
+<div class="ps42 v16 s36">
+<div class="v15 ps43 s49 c43">
+<div class="v15 ps44 s50 c44">
+<div class="wrapper2">
 
 {{category}} 추천목록!!
 {% for detail in detail_list %}
@@ -114,27 +82,16 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 {% endfor %}
 {% endfor %}
 </p>
-</div>
-</div>
-<div class="v ps s c">
-<div class="v2 ps21 s2 c21">
-<p class="p f">
-    
 
-
-</p>
 </div>
 </div>
-<div class="v ps3 s c22"></div>
-<div class="v ps5 s c23"></div>
 </div>
 </div>
-
-<!--
-<script>!function(){var s=["js/jquery.js","js/recommend.20200725000936.js"],n={},j=0,e=function(e){var o=new XMLHttpRequest;o.open("GET",s[e],!0),o.onload=function(){if(n[e]=o.responseText,2==++j)for(var t in s){var i=document.createElement("script");i.textContent=n[t],document.body.appendChild(i)}},o.send()};for(var o in s)e(o)}();
+</div>
+<script>!function(){var s=["js/jquery.js","js/jqueryui.js","js/menu.js","js/menu-dropdown-animations.min.js","js/menu-dropdown.20200730192345.js","js/recommend.20200730192345.js"],n={},j=0,e=function(e){var o=new XMLHttpRequest;o.open("GET",s[e],!0),o.onload=function(){if(n[e]=o.responseText,6==++j)for(var t in s){var i=document.createElement("script");i.textContent=n[t],document.body.appendChild(i)}},o.send()};for(var o in s)e(o)}();
 </script>
 <script type="text/javascript">
 var ver=RegExp(/Mozilla\/5\.0 \(Linux; .; Android ([\d.]+)/).exec(navigator.userAgent);if(ver&&parseFloat(ver[1])<5){document.getElementsByTagName('body')[0].className+=' whitespacefix';}
 </script>
 </body>
-</html>-->
+</html>
