@@ -23,33 +23,39 @@ html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 </script>
 </head>
 <body id="b">
-<div class="v3 ps6 s3 c7">
-<div class="ps7 v4 s4">
-<div class="v3 ps8 s5 c8">
-<div class="v3 ps8 s6 c9">
-<a href="#" class="f2 btn v5 s7">역.잘.알</a>
+<div class="v3 ps5 s3 c7">
+<div class="ps6 v4 s4">
+<div class="v3 ps7 s5 c8">
+<div class="v3 ps7 s6 c9">
+<a href="{% url 'main'%}" class="f2 btn v5 s7">역.잘.알</a>
 </div>
-<div class="v3 ps9 s8 c10">
-<a href="#" class="f3 btn v5 s9">역사퀴즈</a>
+<div class="v6 ps8 s8 c10">
+<ul class="menu-dropdown v7 ps7 s8 m" id="m1">
+<li class="v3 ps7 s9 mit">
+<a href="{% url 'test'%}" class="ml"><div class="menu-content mcv"><div class="v3 ps7 s10 c11"><div class="v8 ps7 s9 c12"><p class="p2 f3">역사퀴즈</p></div></div></div></a>
+</li>
+<li class="v3 ps9 s9 mit">
+<a href="{% url 'result'%}" class="ml"><div class="menu-content mcv"><div class="v3 ps7 s10 c11"><div class="v8 ps7 s9 c12"><p class="p2 f3">결과</p></div></div></div></a>
+</li>
+<li class="v3 ps9 s9 mit">
+<a href="{% url 'recommend'%}" class="ml"><div class="menu-content mcv"><div class="v3 ps7 s10 c11"><div class="v8 ps7 s9 c12"><p class="p2 f3">검색</p></div></div></div></a>
+</li>
+<li class="v3 ps9 s9 mit">
+<a href="{% url 'qna'%}" class="ml"><div class="menu-content mcv"><div class="v3 ps7 s10 c11"><div class="v8 ps7 s9 c12"><p class="p2 f3">문의</p></div></div></div></a>
+</li>
+</ul>
 </div>
-<div class="v3 ps10 s8 c11">
-<a href="result.html" class="f3 btn v5 s9">결과</a>
-</div>
-<div class="v3 ps11 s8 c12">
-<a href="recommend.html" class="f3 btn v5 s9">추천</a>
 </div>
 </div>
 </div>
-</div>
-<div class="ps12 v4 s10">
-<div class="v3 ps13 s11 c13">
-<div class="v3 ps14 s12 c8">
-<div class="v3 ps8 s12 w">
- <div class="v6 ps8 s13 c14">
- <p class="p2 f4">역사탐구 퀴즈</p>
- <p class="p2 f5"><br></p>
- <p class="p2 f5">역사문제를 푸시고 서비스를 제공받으세요</p>
- <p class="p2 f5">역사문제를 푸시고 서비스를 제공받으세요
+<div class="ps10 v4 s11">
+<div class="v3 ps11 s12 c13">
+<div class="v3 ps12 s13 c8">
+<div class="v3 ps7 s13 w">
+<div class="v8 ps7 s14 c14">
+<p class="p2 f4">역사탐구 퀴즈</p>
+<p class="p2 f5"><br></p>
+<p class="p2 f5">역사문제를 푸시고 서비스를 제공받으세요
      {% if messages %}
  {% for i in messages %}
  {{i.message}}
